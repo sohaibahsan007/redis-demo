@@ -57,6 +57,7 @@ export class ProductController {
     return this.productRepository.count(where);
   }
 
+  @cache(60000)
   @get('/products')
   @response(200, {
     description: 'Array of Product model instances',
