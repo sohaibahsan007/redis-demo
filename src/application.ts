@@ -20,6 +20,7 @@ export class RedisDemoApplication extends BootMixin(
   constructor(options: ApplicationConfig = {}) {
     super(options);
 
+    // Add Cache Component to provide caching capabilities
     this.component(CacheComponent);
     this.bind(CacheBindings.CACHE_STRATEGY).toProvider(CacheStrategyProvider);
 

@@ -4,6 +4,9 @@ import {CacheBindings, CacheMetadata, CacheStrategy} from 'loopback-api-cache';
 import {Cache} from '../models';
 import {CacheRepository} from '../repositories';
 
+/**
+ * Add custom logic for data Caching
+ */
 export class CacheStrategyProvider
   implements Provider<CacheStrategy | undefined>
 {
@@ -19,11 +22,13 @@ export class CacheStrategyProvider
     }
 
     return {
+      // Returns cached value
       check: (path: string) =>
         this.cacheRepo.get(path).catch(err => {
           console.error(err);
           return undefined;
         }),
+      // Set cache
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       set: async (path: string, result: any) => {
         const cache = new Cache({

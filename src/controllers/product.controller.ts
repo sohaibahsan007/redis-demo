@@ -57,7 +57,6 @@ export class ProductController {
     return this.productRepository.count(where);
   }
 
-  @cache(60000)
   @get('/products')
   @response(200, {
     description: 'Array of Product model instances',
@@ -95,7 +94,8 @@ export class ProductController {
     return this.productRepository.updateAll(product, where);
   }
 
-  @cache(60000)
+  // Cache product for 60 seconds
+  @cache(6000)
   @get('/products/{id}')
   @response(200, {
     description: 'Product model instance',
