@@ -4,13 +4,13 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'postgres',
   connector: 'postgresql',
-  url: 'postgres://postgres:root@localhost/redis_demo',
+  url: 'postgres://postgres:root@localhost:5438/redis_demo',
   host: 'localhost',
   port: 5438,
   user: 'postgres',
   password: 'root',
   database: 'redis_demo',
-  schema: 'product',
+  schema: 'demo',
 };
 
 @lifeCycleObserver('datasource')
