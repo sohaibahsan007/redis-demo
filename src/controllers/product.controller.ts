@@ -95,7 +95,7 @@ export class ProductController {
   }
 
   // Cache product for 60 seconds
-  @cache(6000)
+  @cache(60)
   @get('/products/{id}')
   @response(200, {
     description: 'Product model instance',
