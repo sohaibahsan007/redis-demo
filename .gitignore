@@ -63,3 +63,4 @@ typings/
 # Cache used by TypeScript's incremental build
 *.tsbuildinfo
 /postgres-data
+/cache-data
